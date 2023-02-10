@@ -109,11 +109,8 @@ class TicTacToe{
     public void printBoard(char[][] board){
         for(int i=0; i<board.length; i++){
             for(int j=0; j<board.length; j++){
-                l.info("| "+board[i][j]+" |"+" ");
-            }
-            if((i!=board.length-1)){
-                l.info("\n");
-                l.info("-----------------");
+                String z=board[i][j]+" ";
+                l.info(z);
             }
             l.info("\n");
         }
