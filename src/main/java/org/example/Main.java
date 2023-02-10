@@ -140,11 +140,11 @@ class TicTacToe{
             obj.printBoard(board);
             if(obj.winGame(board,row,col)==1){
                 l.info("Player1 is win");
-                break;
+                t=false;
             }
             if(count==(board.length*board.length)){
                 l.info("game is drawn");
-                break;
+                t=false;
             }
             l.info("Player2");
             l.info("Enter row:");
