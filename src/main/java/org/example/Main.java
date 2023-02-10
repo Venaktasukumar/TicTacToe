@@ -91,25 +91,19 @@ class TicTacToe{
             if(hor==1 || ver==1 || rightDiagonal(board)==1 || leftDiagnoal(board)==1){
                 return 1;
             }
-            else{
-                return 0;
-            }
+            return 0;
         }
         else if(row==column){
             if(hor==1 || ver==1 || rightDiagonal(board)==1){
                 return 1;
             }
-            else{
-                return 0;
-            }
+            return 0;
         }
         else{
             if(hor==1 || ver==1 || leftDiagnoal(board)==1){
                 return 1;
             }
-            else{
-                return 0;
-            }
+            return 0;
         }
     }
     public void printBoard(char[][] board){
