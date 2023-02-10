@@ -112,7 +112,7 @@ class TicTacToe{
                 String z=board[i][j]+" ";
                 l.info(z);
             }
-            l.info("\n");
+            l.info();
         }
     }
     public static void main(String[] args){
@@ -140,11 +140,11 @@ class TicTacToe{
             obj.printBoard(board);
             if(obj.winGame(board,row,col)==1){
                 l.info("Player1 is win");
-                t=false;
+                System.exit(0);
             }
             if(count==(board.length*board.length)){
                 l.info("game is drawn");
-                t=false;
+                System.exit(0);
             }
             l.info("Player2");
             l.info("Enter row:");
@@ -156,7 +156,7 @@ class TicTacToe{
             obj.printBoard(board);
             if(obj.winGame(board,row1,col1)==1){
                 l.info("Player2 is win");
-                t=false;
+                System.exit(0);
             }
             if(count==(board.length*board.length)){
                 l.info("Game is Drawn");
