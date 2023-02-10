@@ -112,7 +112,7 @@ class TicTacToe{
                 String z=board[i][j]+" ";
                 l.info(z);
             }
-            l.info();
+            l.info("\n");
         }
     }
     public static void main(String[] args){
