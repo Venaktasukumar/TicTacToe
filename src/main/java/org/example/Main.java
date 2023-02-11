@@ -114,6 +114,16 @@ class TicTacToe{
             return 0;
         }
     }
+    public char[][] assignBoard(int dimension){
+        char[][] board=new char[dimension][dimension];
+        for(int i=0; i<dimension; i++){
+            for(int j=0; j<dimension; j++){
+                board[i][j]='-';
+            }
+        }
+        return board;
+
+    }
     public void printBoard(char[][] board){
         for(int i=0; i<board.length; i++){
             for(int j=0; j<board.length; j++){
@@ -127,14 +137,9 @@ class TicTacToe{
         Logger l= Logger.getLogger("com.api.jar");
         Scanner sc=new Scanner(System.in);
         l.info("Enter the Dimension");
-        int dimension=sc.nextInt();
-        char[][] board=new char[dimension][dimension];
-        for(int i=0; i<dimension; i++){
-            for(int j=0; j<dimension; j++){
-                board[i][j]='-';
-            }
-        }
         TicTacToe obj=new TicTacToe();
+        int dimension=sc.nextInt();
+        char[][] board=obj.assignBoard(dimension);
         boolean t=true;
         int count=0;
         while(t){
