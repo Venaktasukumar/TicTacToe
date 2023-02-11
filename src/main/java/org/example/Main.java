@@ -174,7 +174,7 @@ class TicTacToe{
             }
             if(count==(board.length*board.length)){
                 l.info("Game is Drawn");
-                break;
+                System.exit(0);
             }
         }
         sc.close();
