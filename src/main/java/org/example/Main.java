@@ -77,11 +77,19 @@ class TicTacToe{
             return 0;
         }
     }
-    public void setplayer1(char[][] board,int row, int column){
+    public int setplayer1(char[][] board,int row, int column){
+        if(board[row][column]=='X' || board[row][column]=='O'){
+            return 0;
+        }
         board[row][column]='X';
+        return 1;
     }
-    public void setplayer2(char[][] board,int row, int column){
+    public int setplayer2(char[][] board,int row, int column){
+        if(board[row][column]=='X' || board[row][column]=='O'){
+            return 0;
+        }
         board[row][column]='O';
+        return 1;
     }
 
     public int winGame(char[][] board,int row, int column){
@@ -135,7 +143,10 @@ class TicTacToe{
             int row=sc.nextInt();
             l.info("Enter column:");
             int col=sc.nextInt();
-            obj.setplayer1(board,row,col);
+            if(obj.setplayer1(board,row,col)==0){
+                l.info("invalid row and column");
+                System.exit(0);
+            }
             count++;
             obj.printBoard(board);
             if(obj.winGame(board,row,col)==1){
@@ -151,7 +162,10 @@ class TicTacToe{
             int row1=sc.nextInt();
             l.info("Enter column:");
             int col1=sc.nextInt();
-            obj.setplayer2(board,row1,col1);
+            if(obj.setplayer2(board,row1,col1)==0){
+                l.info("invalid row and column");
+                System.exit(0);
+            }
             count++;
             obj.printBoard(board);
             if(obj.winGame(board,row1,col1)==1){
