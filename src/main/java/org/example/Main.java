@@ -95,14 +95,8 @@ class TicTacToe{
     public int winGame(char[][] board,int row, int column){
         int hor=horizontalcheck(board,row);
         int ver=verticalcheck(board,column);
-        if(row==1 && column==1){
-            if(hor==1 || ver==1 || rightDiagonal(board)==1 || leftDiagnoal(board)==1){
-                return 1;
-            }
-            return 0;
-        }
-        else if(row==column){
-            if(hor==1 || ver==1 || rightDiagonal(board)==1){
+        if(row==column){
+            if(hor==1 || ver==1 || rightDiagonal(board)==1 || rightDiagonal(board)==1){
                 return 1;
             }
             return 0;
