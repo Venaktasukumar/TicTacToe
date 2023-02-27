@@ -60,7 +60,7 @@ class TicTacToe{
     public int leftDiagnoal(char[][] board){
         int count1=0;
         int count2=0;
-        int j=2;
+        int j= board.length-1;
         for(int i=0; i<board.length; i++){
             if(board[i][j]=='X'){
                 count1++;
