@@ -1,7 +1,7 @@
 package org.example;
 import java.util.*;
 import java.util.logging.*;
-class TicTacToe{
+public class TicTacToe{
     Logger l= Logger.getLogger("com.api.jar");
     public int horizontalcheck(char[][] board, int row){
         int count1=0;
