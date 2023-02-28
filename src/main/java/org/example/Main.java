@@ -132,49 +132,54 @@ class TicTacToe{
         Scanner sc=new Scanner(System.in);
         l.info("Enter the Dimension");
         TicTacToe obj=new TicTacToe();
-        int dimension=sc.nextInt();
-        char[][] board=obj.assignBoard(dimension);
-        boolean t=true;
-        int count=0;
-        while(t){
-            l.info("Player1");
-            l.info("Enter row:");
-            int row=sc.nextInt();
-            l.info("Enter column:");
-            int col=sc.nextInt();
-            if(obj.setplayer1(board,row,col)==0){
-                l.info("invalid row and column");
-                System.exit(0);
+        try{
+          int dimension=sc.nextInt();
+          char[][] board=obj.assignBoard(dimension);
+          boolean t=true;
+          int count=0;
+          while(t) {
+                l.info("Player1");
+                l.info("Enter row:");
+                int row = sc.nextInt();
+                l.info("Enter column:");
+                int col = sc.nextInt();
+                if (obj.setplayer1(board, row, col) == 0) {
+                    l.info("invalid row and column");
+                    System.exit(0);
+                }
+                count++;
+                obj.printBoard(board);
+                if (obj.winGame(board, row, col) == 1) {
+                    l.info("Player1 is win");
+                    System.exit(0);
+                }
+                if (count == (board.length * board.length)) {
+                    l.info("game is drawn");
+                    System.exit(0);
+                }
+                l.info("Player2");
+                l.info("Enter row:");
+                int row1 = sc.nextInt();
+                l.info("Enter column:");
+                int col1 = sc.nextInt();
+                if (obj.setplayer2(board, row1, col1) == 0) {
+                    l.info("invalid row and column");
+                    System.exit(0);
+                }
+                count++;
+                obj.printBoard(board);
+                if (obj.winGame(board, row1, col1) == 1) {
+                    l.info("Player2 is win");
+                    System.exit(0);
+                }
+                if (count == (board.length * board.length)) {
+                    l.info("Game is Drawn");
+                    System.exit(0);
+                }
             }
-            count++;
-            obj.printBoard(board);
-            if(obj.winGame(board,row,col)==1){
-                l.info("Player1 is win");
-                System.exit(0);
-            }
-            if(count==(board.length*board.length)){
-                l.info("game is drawn");
-                System.exit(0);
-            }
-            l.info("Player2");
-            l.info("Enter row:");
-            int row1=sc.nextInt();
-            l.info("Enter column:");
-            int col1=sc.nextInt();
-            if(obj.setplayer2(board,row1,col1)==0){
-                l.info("invalid row and column");
-                System.exit(0);
-            }
-            count++;
-            obj.printBoard(board);
-            if(obj.winGame(board,row1,col1)==1){
-                l.info("Player2 is win");
-                System.exit(0);
-            }
-            if(count==(board.length*board.length)){
-                l.info("Game is Drawn");
-                System.exit(0);
-            }
+        }
+        catch(Exception e){
+            l.info(""+e) ;
         }
         sc.close();
     }
