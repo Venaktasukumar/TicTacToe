@@ -163,7 +163,7 @@ public class TicTacToe {
                 else{
                     l.info("player2 is win");
                 }
-                break;
+                k=false;
             }
             if(count==dimension*dimension){
                 l.info("Game is drawn");
