@@ -157,12 +157,8 @@ public class TicTacToe {
             count++;
             obj.printBoard(board);
             if(obj.winGame(board, row, col) == 1) {
-                if(p=='X'){
-                    l.info("Player1 is win");
-                }
-                else{
-                    l.info("player2 is win");
-                }
+                String h=(p=='X') ? "Player1 is win" : "player2 is win";
+                l.info(h);
                 k=false;
             }
             if(count==dimension*dimension){
