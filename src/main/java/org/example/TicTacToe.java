@@ -74,13 +74,13 @@ public class TicTacToe {
         }
     }
 
-    public int setplayer(char[][] board, int row, int column, char p) {
+    public int setplayer(char[][] board, int row, int column, int count) {
         if (board[row][column] == 'X' || board[row][column] == 'O') {
             l.info("invalid row and column");
             return 0;
-        } else if (p == 'X') {
+        } else if (count%2==0) {
             board[row][column] = 'X';
-        } else if (p == 'O') {
+        } else if (count%2!=0) {
             board[row][column] = 'O';
         }
         return 1;
@@ -132,17 +132,10 @@ public class TicTacToe {
             int dimension = sc.nextInt();
             char[][] board = obj.assignBoard(dimension);
             int count = 0;
-            char p;
             boolean k = true;
             while (k) {
-                if (count % 2 == 0) {
-                    l.info("player 1 turn");
-                    p = 'X';
-
-                } else {
-                    l.info("player 2 turn");
-                    p = 'O';
-                }
+                String j=(count%2==0) ? "player 1 turn" : "player 2 turn";
+                l.info(j);
                 boolean t = true;
                 int row = 0;
                 int col = 0;
@@ -153,16 +146,16 @@ public class TicTacToe {
                     col = sc.nextInt();
                     t = false;
                 }
-                if (obj.setplayer(board, row, col, p) == 0) {
+                if (obj.setplayer(board, row, col, count) == 0) {
                     break;
                 }
-                count++;
                 obj.printBoard(board);
                 if (obj.winGame(board, row, col) == 1) {
-                    String h = (p == 'X') ? "Player1 is win" : "player2 is win";
+                    String h = (count%2==0) ? "Player1 is win" : "player2 is win";
                     l.info(h);
                     k = false;
                 }
+                count++;
                 if (count == dimension * dimension) {
                     l.info("Game is drawn");
                     k = false;
