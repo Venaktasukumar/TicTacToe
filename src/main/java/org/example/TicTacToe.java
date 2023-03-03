@@ -85,6 +85,7 @@ public class TicTacToe {
         }
         return 1;
     }
+
     public int winGame(char[][] board, int row, int column) {
         int hor = horizontalcheck(board, row);
         int ver = verticalcheck(board, column);
@@ -125,46 +126,51 @@ public class TicTacToe {
     public static void main(String[] args) {
         Logger l = Logger.getLogger("com.api.jar");
         Scanner sc = new Scanner(System.in);
-        l.info("Enter the Dimension");
-        TicTacToe obj = new TicTacToe();
-        int dimension = sc.nextInt();
-        char[][] board = obj.assignBoard(dimension);
-        int count = 0;
-        char p;
-        boolean k=true;
-        while (k) {
-            if (count % 2 == 0) {
-                l.info("player 1 turn");
-                p = 'X';
+        try {
+            l.info("Enter the Dimension");
+            TicTacToe obj = new TicTacToe();
+            int dimension = sc.nextInt();
+            char[][] board = obj.assignBoard(dimension);
+            int count = 0;
+            char p;
+            boolean k = true;
+            while (k) {
+                if (count % 2 == 0) {
+                    l.info("player 1 turn");
+                    p = 'X';
 
-            } else {
-                l.info("player 2 turn");
-                p = 'O';
+                } else {
+                    l.info("player 2 turn");
+                    p = 'O';
+                }
+                boolean t = true;
+                int row = 0;
+                int col = 0;
+                while (t) {
+                    l.info("Enter row");
+                    row = sc.nextInt();
+                    l.info("Enter col");
+                    col = sc.nextInt();
+                    t = false;
+                }
+                if (obj.setplayer(board, row, col, p) == 0) {
+                    break;
+                }
+                count++;
+                obj.printBoard(board);
+                if (obj.winGame(board, row, col) == 1) {
+                    String h = (p == 'X') ? "Player1 is win" : "player2 is win";
+                    l.info(h);
+                    k = false;
+                }
+                if (count == dimension * dimension) {
+                    l.info("Game is drawn");
+                    k = false;
+                }
             }
-            boolean t = true;
-            int row = 0;
-            int col = 0;
-            while (t) {
-                l.info("Enter row");
-                row = sc.nextInt();
-                l.info("Enter col");
-                col = sc.nextInt();
-                t = false;
-            }
-            if(obj.setplayer(board, row, col, p)==0){
-                break;
-            }
-            count++;
-            obj.printBoard(board);
-            if(obj.winGame(board, row, col) == 1) {
-                String h=(p=='X') ? "Player1 is win" : "player2 is win";
-                l.info(h);
-                k=false;
-            }
-            if(count==dimension*dimension){
-                l.info("Game is drawn");
-                k=false;
-            }
+        }
+        catch(Exception e){
+            l.info("Something went wrong"+e);
         }
     }
 }
