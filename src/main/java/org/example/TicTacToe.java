@@ -152,12 +152,10 @@ public class TicTacToe {
                 t = false;
             }
             if(obj.setplayer(board, row, col, p)==0){
-                k=false;
+                break;
             }
-            else{
-                count++;
-                obj.printBoard(board);
-            }
+            count++;
+            obj.printBoard(board);
             if(obj.winGame(board, row, col) == 1) {
                 if(p=='X'){
                     l.info("Player1 is win");
